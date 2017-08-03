@@ -1,0 +1,39 @@
+@import '../variables';
+
+header {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 56%;
+    width: 100%;
+
+    section {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 8px $dark-grey;
+        color: $yellow;
+        font-size: 60px;
+    }
+
+    a {
+        display: block;
+        transition: transform .5s;
+        margin-top: 10px;
+        border-radius: 20px;
+        box-shadow: 2px 2px 8px $dark-grey;
+        background-color: $yellow;
+        padding: 10px 20px;
+        text-decoration: none;
+        white-space: nowrap;
+        color: $dark-grey;
+
+        &:hover {
+            transform: scale3d(1.1, 1.1, 1);
+        }
+    }
+}

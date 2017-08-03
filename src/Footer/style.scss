@@ -1,0 +1,14 @@
+@import '../variables';
+
+footer {
+    z-index: 1;
+    background-color: $yellow;
+    color: $dark-grey;
+
+    section {
+        margin: 0 auto;
+        padding: 25px;
+        max-width: 1040px;
+        text-align: right;
+    }
+}

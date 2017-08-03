@@ -1,0 +1,32 @@
+@import './variables';
+@import './keyframes';
+
+* {
+    box-sizing: border-box;
+}
+
+button:focus {
+    outline: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    font-family: $font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $header;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+

@@ -1,0 +1,74 @@
+@import '../variables';
+
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity .5s;
+    animation-name: hide;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    margin: 0 auto;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#71bbbf+0,f2c41f+26,b03f1d+49,71bbbf+74,f2c41f+100 */
+    // scss-lint:disable all
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#71bbbf+0,f2c41f+26,b03f1d+49,71bbbf+74,f2c41f+97,f2c41f+100 */
+    background: #71bbbf; /* Old browsers */
+    background: -moz-linear-gradient(top, #71bbbf 0%, #f2c41f 26%, #b03f1d 49%, #71bbbf 74%, #f2c41f 97%, #f2c41f 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #71bbbf 0%,#f2c41f 26%,#b03f1d 49%,#71bbbf 74%,#f2c41f 97%,#f2c41f 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #71bbbf 0%,#f2c41f 26%,#b03f1d 49%,#71bbbf 74%,#f2c41f 97%,#f2c41f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#71bbbf', endColorstr='#f2c41f',GradientType=0 ); /* IE6-9 */
+    // scss-lint:enable all
+
+    width: 100%;
+
+    &.show {
+        position: relative;
+        animation-name: show;
+        opacity: 1;
+    }
+
+    .content {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 980px;
+
+        section {
+            display: flex;
+            padding: 20px 0;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+
+            p {
+                padding: 0 20px;
+                text-align: center;
+                color: $dark-grey;
+                font-size: 36px;
+            }
+
+            @media (min-width: 700px) {
+                p {
+                    width: 40%;
+                    min-width: 400px;
+                }
+
+                img {
+                    width: 30%;
+                    min-width: 300px;
+                }
+
+                &:nth-of-type(even) {
+                    p {
+                        order: 2;
+                    }
+
+                    img {
+                        order: 1;
+                    }
+                }
+            }
+        }
+    }
+}
