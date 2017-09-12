@@ -8,12 +8,11 @@ import architecture from './architecture.jpg';
 import './style.scss';
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
+    const {
+      page,
+    } = this.props;
+
     return (
       <header>
           <Background image={architecture} />
@@ -25,6 +24,7 @@ class Header extends React.Component {
               check out the web app
             </Link>
           </section>
+          <iframe src={page === 'app' ? 'https://thatawe.com' : ''}></iframe>
       </header>
     );
   }

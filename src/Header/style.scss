@@ -5,6 +5,8 @@ header {
     z-index: 1;
     padding-bottom: 56%;
     width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 
     section {
         position: absolute;
@@ -34,6 +36,24 @@ header {
 
         &:hover {
             transform: scale3d(1.1, 1.1, 1);
+        }
+    }
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+        width: 56.25vh;
+        height: 100vh;
+    }
+
+    .page.app.page-app & {
+        min-height: 100vh;
+
+        iframe {
+            z-index: 1;
         }
     }
 }

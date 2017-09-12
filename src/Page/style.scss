@@ -29,6 +29,11 @@
         opacity: 1;
     }
 
+    .content,
+    footer {
+        overflow: hidden;
+    }
+
     .content {
         margin: 0 auto;
         width: 100%;
@@ -42,22 +47,23 @@
             flex-wrap: wrap;
 
             p {
+                margin-bottom: 40px;
                 padding: 0 20px;
                 text-align: center;
                 color: $dark-grey;
                 font-size: 36px;
             }
 
+            img {
+                box-shadow: 0 5px 20px $dark-grey;
+                width: 25%;
+                min-width: 300px;
+            }
+
             @media (min-width: 700px) {
                 p {
                     width: 40%;
                     min-width: 400px;
-                }
-
-                img {
-                    box-shadow: 0 5px 20px $dark-grey;
-                    width: 25%;
-                    min-width: 300px;
                 }
 
                 &:nth-of-type(even) {
@@ -70,6 +76,13 @@
                     }
                 }
             }
+        }
+    }
+
+    &.app.page-app {
+        .content,
+        footer {
+            height: 0;
         }
     }
 }

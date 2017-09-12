@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
 } from 'react-router-dom';
 
 import Page from '../Page';
@@ -26,8 +25,8 @@ class App extends Component {
       <Router>
         <div>
           <Route path="/*" component={props =>
-            <Page title="home" page={props.match.params[0] || 'home'}>
-              <Header />
+            <Page title="home app" page={props.match.params[0]}>
+              <Header page={props.match.params[0]} />
               <div className="content">
                 <section>
                   <p>
@@ -51,8 +50,8 @@ class App extends Component {
               <Footer />
             </Page>
           } />
-          <Route path="/*" component={props =>
-            <Page title="app" page={props.match.params[0] || 'home'}>
+          {/* <Route path="/*" component={props =>
+            <Page title="app" page={props.match.params[0]}>
               <div className="content">
                 hold your horses this part is coming soon&nbsp;
                 <Link to="/">
@@ -60,7 +59,7 @@ class App extends Component {
                 </Link>
               </div>
             </Page>
-          } />
+          } /> */}
         </div>
       </Router>
     );
