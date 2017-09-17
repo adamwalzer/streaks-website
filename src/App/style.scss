@@ -1,7 +1,65 @@
 @import '../variables';
 
 main {
+    display: block;
     position: relative;
+    z-index: 1;
+    margin: 0;
     background-color: $grey;
+    padding: 0;
+    width: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
     overflow: hidden;
+    font-family: $font;
+
+    h1,
+    h2,
+    h4 {
+        margin: 0 auto;
+        width: 90%;
+        text-align: center;
+        text-shadow: 4px 4px 4px $dark-grey;
+        color: $white;
+
+        span {
+            display: inline-block;
+        }
+    }
+
+    h1 {
+        font-size: 64px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    h4 {
+        margin-top: 10px;
+        font-size: 24px;
+    }
+
+    .home & {
+        line-height: 1.4;
+
+        section {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 90%;
+        }
+    }
+
+    .apps & {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        flex-direction: column;
+
+        .rust {
+            color: $rust;
+        }
+    }
 }

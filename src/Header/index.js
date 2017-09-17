@@ -20,11 +20,11 @@ class Header extends React.Component {
             <h1>
                 streaks
             </h1>
-            <Link to="/app">
+            <Link to="/streaks/app">
               check out the web app
             </Link>
           </section>
-          <iframe src={page === 'app' ? 'https://thatawe.com' : ''}></iframe>
+          <iframe src={page === 'streaks/app' ? 'https://thatawe.com' : ''}></iframe>
       </header>
     );
   }

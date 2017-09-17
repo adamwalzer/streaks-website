@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
+  Link,
   Route,
 } from 'react-router-dom';
 
 import Page from '../Page';
 import Header from '../Header';
 import Footer from '../Footer';
+import Background from '../Background';
+import AppCards from '../AppCards';
+
+import positive from './positive.jpg'; // https://pixabay.com/en/positive-awesome-sun-happy-poster-2223126/
+import sunset from './sunset.jpg'; // https://pixabay.com/en/sunset-lake-sky-abendstimmung-2153745/
 
 import add from './add.png';
 import view from './view.png';
@@ -25,7 +31,23 @@ class App extends Component {
       <Router>
         <div>
           <Route path="/*" component={props =>
-            <Page title="home app" page={props.match.params[0]}>
+            <Page title="apps" page={props.match.params[0]}>
+              <main>
+                <Background image={positive} />
+                <div>
+                  <h1>
+                    <span className="rust">apps</span> thatawe
+                  </h1>
+                  <h2>
+                    happily introducing <span>our first app</span>
+                  </h2>
+                </div>
+                <AppCards />
+              </main>
+            </Page>
+          } />
+          <Route path="/*" component={props =>
+            <Page title="streaks" page={props.match.params[0]}>
               <Header page={props.match.params[0]} />
               <div className="content">
                 <section>
@@ -50,16 +72,29 @@ class App extends Component {
               <Footer />
             </Page>
           } />
-          {/* <Route path="/*" component={props =>
-            <Page title="app" page={props.match.params[0]}>
-              <div className="content">
-                hold your horses this part is coming soon&nbsp;
-                <Link to="/">
-                  back home
-                </Link>
-              </div>
+          <Route path="/*" component={props =>
+            <Page title="home" page={props.match.params[0]}>
+              <Link
+                to="/apps"
+                className="main-container"
+              >
+                <main>
+                  <Background image={sunset} />
+                  <section>
+                    <h1>
+                      thatawe
+                    </h1>
+                    <h2>
+                      a place for apps <span>that awe</span>
+                    </h2>
+                    <h4>
+                      click anywhere to <span>checkout the apps</span>
+                    </h4>
+                  </section>
+                </main>
+              </Link>
             </Page>
-          } /> */}
+          } />
         </div>
       </Router>
     );

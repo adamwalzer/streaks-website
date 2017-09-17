@@ -9,9 +9,14 @@ button:focus {
     outline: none;
 }
 
-body {
+html,
+body,
+#root,
+[data-reactroot] {
     margin: 0;
     padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
     line-height: 1.4;
     font-family: $font;
 }

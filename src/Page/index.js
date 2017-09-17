@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { lowerCase, includes } from 'lodash';
+import { replace, lowerCase, includes } from 'lodash';
 import './style.scss';
 
 class Page extends React.Component {
@@ -10,12 +10,13 @@ class Page extends React.Component {
 
   getClassNames() {
     const title = lowerCase(this.props.title);
+    const page = replace(this.props.page || 'home', '/', '_');
     return classNames(
       'page',
       title,
-      `page-${this.props.page}`,
+      `page-${page}`,
       {
-        show: includes(title, this.props.page),
+        show: includes(page, title),
       },
     );
   }
