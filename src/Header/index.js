@@ -24,7 +24,7 @@ class Header extends React.Component {
               check out the web app
             </Link>
           </section>
-          <iframe src={page === 'streaks/app' ? 'https://thatawe.com' : ''}></iframe>
+          <iframe src={page === 'streaks/app' ? 'https://streaks.thatawe.com' : ''}></iframe>
       </header>
     );
   }

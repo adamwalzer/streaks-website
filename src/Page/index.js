@@ -1,7 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
 import { replace, lowerCase, includes } from 'lodash';
+
 import './style.scss';
+
+const titles = {
+  home: 'thatawe',
+  apps: 'apps thatawe',
+  streaks: 'streaks | thatawe',
+  'streaks/app': 'streaks | thatawe',
+};
 
 class Page extends React.Component {
   defaultProps = {
@@ -22,6 +30,8 @@ class Page extends React.Component {
   }
 
   render() {
+    document.title = titles[this.props.page || 'home'];
+
     return (
       <div className={this.getClassNames()} children={this.props.children} />
     );
