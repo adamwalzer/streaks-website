@@ -1,0 +1,29 @@
+@import '../variables';
+
+header {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 56%;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    section {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+    }
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        width: 56.25vh;
+        height: 100vh;
+    }
+}

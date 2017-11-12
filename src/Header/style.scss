@@ -38,22 +38,4 @@ header {
             transform: scale3d(1.1, 1.1, 1);
         }
     }
-
-    iframe {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -1;
-        width: 56.25vh;
-        height: 100vh;
-    }
-
-    .page.streaks.page-streaks_app & {
-        min-height: 100vh;
-
-        iframe {
-            z-index: 1;
-        }
-    }
 }

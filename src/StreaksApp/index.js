@@ -4,22 +4,15 @@ import Background from '../Background';
 import architecture from './architecture.jpg';
 import './style.scss';
 
-class Header extends React.Component {
+class StreaksApp extends React.Component {
   render() {
     return (
       <header>
           <Background image={architecture} />
-          <section>
-            <h1>
-                streaks
-            </h1>
-            <a href="https://streaks.thatawe.com" target="_blank">
-              check out the web app
-            </a>
-          </section>
+          <iframe src="https://streaks.thatawe.com"></iframe>
       </header>
     );
   }
 }
 
-export default Header;
+export default StreaksApp;
