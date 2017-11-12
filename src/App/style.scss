@@ -1,7 +1,7 @@
 @import '../variables';
 
 main {
-    display: block;
+    display: flex;
     position: relative;
     z-index: 1;
     margin: 0;
@@ -12,6 +12,13 @@ main {
     min-height: 100vh;
     overflow: hidden;
     font-family: $font;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+
+    .rust {
+        color: $rust;
+    }
 
     h1,
     h2,
@@ -40,6 +47,20 @@ main {
         font-size: 24px;
     }
 
+    &.thatawe {
+        section {
+            margin-bottom: 70px;
+        }
+    }
+
+    &.apps {
+        justify-content: space-between;
+
+        .rust {
+            color: $rust;
+        }
+    }
+
     .home & {
         line-height: 1.4;
 
@@ -49,17 +70,6 @@ main {
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
             width: 90%;
-        }
-    }
-
-    .apps & {
-        display: flex;
-        justify-content: space-between;
-        align-items: stretch;
-        flex-direction: column;
-
-        .rust {
-            color: $rust;
         }
     }
 }

@@ -1,12 +1,6 @@
 @import '../variables';
 
 .page {
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation-name: hide;
-    animation-duration: .5s;
-    animation-fill-mode: forwards;
     margin: 0 auto;
 
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#71bbbf+0,f2c41f+26,b03f1d+49,71bbbf+74,f2c41f+100 */
@@ -22,10 +16,6 @@
     width: 100%;
     min-width: 100vw;
     min-height: 100vh;
-
-    &.show {
-        animation-name: show;
-    }
 
     .main-container {
         display: block;
