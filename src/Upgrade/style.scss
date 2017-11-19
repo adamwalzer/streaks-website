@@ -1,0 +1,11 @@
+@import '../variables';
+
+.upgrade {
+    position: relative;
+    z-index: 1;
+    background-color: $denim;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+}

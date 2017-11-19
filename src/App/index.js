@@ -8,6 +8,7 @@ import {
 import PrivacyPolicy from '../PrivacyPolicy';
 import TermsOfService from '../TermsOfService';
 import StreaksApp from '../StreaksApp';
+import Upgrade from '../Upgrade';
 import Home from '../Home';
 import Footer from '../Footer';
 
@@ -21,6 +22,7 @@ class App extends Component {
         <Switch>
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/terms-of-service" component={TermsOfService} />
+          <Route path="/streaks/upgrade" component={Upgrade} />
           <Route path="/streaks/app" component={StreaksApp} />
           <Route path="/" component={Home} />
         </Switch>
