@@ -1,7 +1,60 @@
-/* global Stripe */
 import React from 'react';
+import {
+	CardElement,
+  StripeProvider,
+  Elements,
+  injectStripe,
+} from 'react-stripe-elements';
 
 import './style.scss';
+
+const options = {
+  style: {
+    base: {
+      fontSize: '14px',
+      color: '#424770',
+      letterSpacing: '0.025em',
+      fontFamily: 'Source Code Pro, Menlo, monospace',
+      '::placeholder': {
+        color: '#aab7c4',
+      },
+    },
+    invalid: {
+      color: '#9e2146',
+    },
+  },
+};
+
+class _CardForm extends React.Component {
+  handleSubmit = ev => {
+    ev.preventDefault();
+    this.props.stripe.createToken().then(payload => {
+      if (payload.error) {
+        this.setState({ paymentError: payload.error.message, submitDisabled: false });
+      } else {
+        /* eslint-disable no-console */
+        console.log(payload);
+        this.setState({ paymentComplete: true, submitDisabled: false, token: payload.token });
+        // make request to your server here!
+      }
+    });
+  };
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Card details
+          <CardElement
+            {...options}
+          />
+        </label>
+        <button>Pay</button>
+      </form>
+    );
+  }
+}
+const CardForm = injectStripe(_CardForm);
 
 class Upgrade extends React.Component {
   constructor(props) {
@@ -10,37 +63,14 @@ class Upgrade extends React.Component {
     this.state = {
       paymentComplete: false,
       paymentError: null,
-      submitDisabled: false,
       email: decodeURIComponent(location.search.split('?email=')[1].split('&')[0]),
       token: null
     };
   }
 
-  componentWillMount() {
-    Stripe.setPublishableKey('pk_test_HFbpBEhNxE6ByS7a22KrYegM');
-  }
-
-  onSubmit= (event) => {
-    event.preventDefault();
-    this.setState({ submitDisabled: true, paymentError: null });
-    // send form here
-    Stripe.createToken(event.target, (status, response) => {
-      if (response.error) {
-        this.setState({ paymentError: response.error.message, submitDisabled: false });
-      } else {
-        this.setState({ paymentComplete: true, submitDisabled: false, token: response.id });
-        /* eslint-disable no-console */
-        console.log(response);
-        // make request to your server here!
-      }
-    });
-  }
-
   render() {
     const {
       paymentComplete,
-      paymentError,
-      submitDisabled,
     } = this.state;
 
     return (
@@ -48,14 +78,13 @@ class Upgrade extends React.Component {
        {
           paymentComplete ?
             <div>Payment Complete!</div> :
-            <form onSubmit={this.onSubmit} >
-              <span>{ paymentError }</span><br />
-              <input type="text" data-stripe="number" placeholder="credit card number" /><br />
-              <input type="text" data-stripe="exp-month" placeholder="expiration month" /><br />
-              <input type="text" data-stripe="exp-year" placeholder="expiration year" /><br />
-              <input type="text" data-stripe="cvc" placeholder="cvc" /><br />
-              <input disabled={submitDisabled} type="submit" value="Purchase" />
-            </form>
+            <div className="checkout">
+              <StripeProvider apiKey="pk_test_HFbpBEhNxE6ByS7a22KrYegM">
+                <Elements>
+                  <CardForm />
+                </Elements>
+              </StripeProvider>
+            </div>
        }
       </section>
     );

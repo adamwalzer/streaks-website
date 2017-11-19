@@ -8,4 +8,69 @@
     min-height: 100vh;
     overflow: hidden;
     box-sizing: border-box;
+
+    .checkout {
+        margin: 0 auto;
+        padding: 0 5px;
+        max-width: 600px;
+        box-sizing: border-box;
+    }
+
+    label {
+        letter-spacing: .025em;
+        font-weight: 300;
+    }
+
+    button {
+        display: inline-block;
+        transition: all 150ms ease;
+        margin-top: 10px;
+        outline: 0;
+        border: 0;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+        background-color: #6772e5;
+        padding: 0 14px;
+        height: 40px;
+        text-transform: uppercase;
+        text-decoration: none;
+        line-height: 40px;
+        letter-spacing: .025em;
+        white-space: nowrap;
+        color: $white;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    form {
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+    }
+
+    button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 7px 14px rgba(50, 50, 93, .10), 0 3px 6px rgba(0, 0, 0, .08);
+        background-color: #7795f8;
+        cursor: pointer;
+        color: $white;
+    }
+
+    .StripeElement {
+        display: block;
+        margin: 10px 0 20px;
+        border-radius: 4px;
+        box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+        background: $white;
+        padding: 10px 14px;
+        max-width: 500px;
+    }
+
+    .StripeElement--focus {
+        box-shadow: rgba(50, 50, 93, 0.109804) 0px 4px 6px, rgba(0, 0, 0, 0.0784314) 0px 1px 3px;
+        transition: all 150ms ease;
+    }
+
+    .StripeElement.PaymentRequestButton {
+        padding: 0;
+    }
 }

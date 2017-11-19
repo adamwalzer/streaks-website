@@ -13,7 +13,8 @@
     "react-dom": "^15.5.4",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.1.1",
-    "react-script-loader": "0.0.1"
+    "react-script-loader": "0.0.1",
+    "react-stripe-elements": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer": "6.7.2",
