@@ -32,22 +32,49 @@ class _CardForm extends React.Component {
       if (payload.error) {
         this.setState({ paymentError: payload.error.message, submitDisabled: false });
       } else {
-        /* eslint-disable no-console */
-        console.log(payload);
         this.setState({ paymentComplete: true, submitDisabled: false, token: payload.token });
-        // make request to your server here!
+        fetch('https://appsthatawe.dev/store/streaks', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            token: payload.token,
+            email: this.props.email,
+            product: document.querySelector('[name=product]:checked').getAttribute('data-product'),
+          })
+        }).then(res => res.json())
+        .then(res => {
+          /* eslint-disable no-console */
+          console.log(res);
+        });
       }
     });
   };
 
   render() {
+    const {
+      email,
+    } = this.props;
+
     return (
       <form onSubmit={this.handleSubmit}>
+        <h1>
+          Upgrade your Streaks account for
+        </h1>
+        <div className="email">
+          {email}
+        </div>
         <label>
           Card details
           <CardElement
             {...options}
           />
+        </label>
+        <label>
+          <input type="radio" name="product" data-product="unlimited-streaks" checked readOnly />
+          $1 for unlimited streaks for one year
         </label>
         <button>Pay</button>
       </form>
@@ -71,6 +98,7 @@ class Upgrade extends React.Component {
   render() {
     const {
       paymentComplete,
+      email,
     } = this.state;
 
     return (
@@ -81,7 +109,7 @@ class Upgrade extends React.Component {
             <div className="checkout">
               <StripeProvider apiKey="pk_test_HFbpBEhNxE6ByS7a22KrYegM">
                 <Elements>
-                  <CardForm />
+                  <CardForm email={email} />
                 </Elements>
               </StripeProvider>
             </div>

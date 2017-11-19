@@ -22,7 +22,7 @@ class App extends Component {
         <Switch>
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/terms-of-service" component={TermsOfService} />
-          <Route path="/streaks/upgrade" component={Upgrade} />
+          <Route path="/store/streaks" component={Upgrade} />
           <Route path="/streaks/app" component={StreaksApp} />
           <Route path="/" component={Home} />
         </Switch>

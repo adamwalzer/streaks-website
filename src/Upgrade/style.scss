@@ -9,11 +9,25 @@
     overflow: hidden;
     box-sizing: border-box;
 
+    h1 {
+        font-size: 28px;
+    }
+
+    .email {
+        margin-bottom: 30px;
+        font-size: 20px;
+    }
+
     .checkout {
         margin: 0 auto;
         padding: 0 5px;
-        max-width: 600px;
+        max-width: 500px;
         box-sizing: border-box;
+    }
+
+    input[type=radio] {
+        margin-right: 10px;
+        margin-bottom: 10px;
     }
 
     label {
@@ -49,6 +63,7 @@
     form {
         margin-bottom: 40px;
         padding-bottom: 40px;
+        max-width: 600px;
         font-family: $font;
     }
 
