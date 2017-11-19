@@ -14,7 +14,7 @@ const options = {
       fontSize: '14px',
       color: '#424770',
       letterSpacing: '0.025em',
-      fontFamily: 'Source Code Pro, Menlo, monospace',
+      fontFamily: 'Lato, sans-serif',
       '::placeholder': {
         color: '#aab7c4',
       },
