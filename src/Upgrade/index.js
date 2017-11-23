@@ -192,7 +192,7 @@ class Upgrade extends React.Component {
     this.state = {
       paymentComplete: false,
       paymentError: null,
-      email: decodeURIComponent(location.search.split('?email=')[1].split('&')[0]),
+      email: decodeURIComponent(((location.search || '').split('?email=')[1] || '').split('&')[0]),
       token: null
     };
   }
