@@ -26,6 +26,15 @@ const options = {
 };
 
 class _CardForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tokens: 10,
+      product: 'unlimited-streaks',
+    };
+  }
+
   handleSubmit = ev => {
     ev.preventDefault();
     this.props.stripe.createToken().then(payload => {
@@ -33,6 +42,12 @@ class _CardForm extends React.Component {
         this.setState({ paymentError: payload.error.message, submitDisabled: false });
       } else {
         this.setState({ paymentComplete: true, submitDisabled: false, token: payload.token });
+
+        const {
+          tokens,
+          product,
+        } = this.state;
+
         fetch('https://appsthatawe.dev/store/streaks', {
           method: 'POST',
           headers: {
@@ -42,24 +57,71 @@ class _CardForm extends React.Component {
           body: JSON.stringify({
             token: payload.token,
             email: this.props.email,
-            product: document.querySelector('[name=product]:checked').getAttribute('data-product'),
+            product: product,
+            tokens,
           })
         }).then(res => res.json())
         .then(res => {
-          /* eslint-disable no-console */
-          console.log(res);
+          if (res.success) {
+            this.setState({
+              successMessage: 'Your transaction is complete!',
+            });
+          } else {
+            this.setState({
+              errorMessage: 'There has been an error processing with your transaction. Please try again.',
+            });
+          }
+
+          parent.postMessage(res, '*');
         });
       }
     });
   };
+
+  _updateProduct = (e) => {
+    this.setState({
+      product: e.target.value,
+    });
+  }
+
+  _updateTokens = (e) => {
+    this.setState({
+      product: 'tokens',
+      tokens: e.target.value,
+    });
+  }
+
+  _setTokenMinimum = (e) => {
+    this.setState({
+      product: 'tokens',
+      tokens: Math.max(e.target.value, 10),
+    });
+  }
 
   render() {
     const {
       email,
     } = this.props;
 
+    const {
+      tokens,
+      product,
+      errorMessage,
+      successMessage,
+    } = this.state;
+
+    const cost = Number(tokens / 10).toFixed(2);
+    const disabled = product === 'tokens' && tokens < 10;
+
     return (
+      successMessage ?
+      <div className="success-message">
+        {successMessage}
+      </div> :
       <form onSubmit={this.handleSubmit}>
+        <div className="error-message">
+          {errorMessage}
+        </div>
         <h1>
           Upgrade your Streaks account for
         </h1>
@@ -73,10 +135,41 @@ class _CardForm extends React.Component {
           />
         </label>
         <label>
-          <input type="radio" name="product" data-product="unlimited-streaks" checked readOnly />
+          <input
+            type="radio"
+            name="product"
+            value="unlimited-streaks"
+            checked={product === 'unlimited-streaks'}
+            onChange={this._updateProduct}
+          />
           $1 for unlimited streaks for one year
         </label>
-        <button>Pay</button>
+        <label>
+          <input
+            type="radio"
+            name="product"
+            value="tokens"
+            checked={product === 'tokens'}
+            onChange={this._updateProduct}
+          />
+          <input
+            type="number"
+            name="tokens"
+            value={tokens}
+            min={10}
+            max={100}
+            step={10}
+            onChange={this._updateTokens}
+            onBlur={this._setTokenMinimum}
+            onFocus={this._setTokenMinimum}
+          />
+          tokens for ${cost}
+        </label>
+        <button
+          disabled={disabled}
+        >
+          Pay
+        </button>
       </form>
     );
   }
