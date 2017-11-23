@@ -5,6 +5,10 @@ import {
 } from 'streaks-website/secrets';
 
 import {
+  api,
+} from 'streaks-website/config';
+
+import {
 	CardElement,
   StripeProvider,
   Elements,
@@ -53,7 +57,7 @@ class _CardForm extends React.Component {
           product,
         } = this.state;
 
-        fetch('https://appsthatawe.dev/store/streaks', {
+        fetch(`${api}store/streaks`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
