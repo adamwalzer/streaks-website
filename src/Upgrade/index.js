@@ -1,4 +1,9 @@
 import React from 'react';
+
+import {
+  stripeApiKey,
+} from 'streaks-website/secrets';
+
 import {
 	CardElement,
   StripeProvider,
@@ -200,7 +205,7 @@ class Upgrade extends React.Component {
           paymentComplete ?
             <div>Payment Complete!</div> :
             <div className="checkout">
-              <StripeProvider apiKey="pk_test_HFbpBEhNxE6ByS7a22KrYegM">
+              <StripeProvider apiKey={stripeApiKey}>
                 <Elements>
                   <CardForm email={email} />
                 </Elements>
