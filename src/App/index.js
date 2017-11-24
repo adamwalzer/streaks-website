@@ -10,6 +10,7 @@ import TermsOfService from '../TermsOfService';
 import StreaksApp from '../StreaksApp';
 import Upgrade from '../Upgrade';
 import ReportBug from '../ReportBug';
+import ContactUs from '../ContactUs';
 import Home from '../Home';
 import Footer from '../Footer';
 
@@ -25,7 +26,7 @@ class App extends Component {
           <Route path="/terms-of-service" component={TermsOfService} />
           <Route path="/store/streaks" component={Upgrade} />
           <Route path="/report/bug" component={ReportBug} />
-          <Route path="/contact/us" component={ReportBug} />
+          <Route path="/contact/us" component={ContactUs} />
           <Route path="/streaks/app" component={StreaksApp} />
           <Route path="/" component={Home} />
         </Switch>
