@@ -72,6 +72,12 @@ class ReportBug extends React.Component {
       }
 
       parent.postMessage(res, '*');
+    })
+    .catch(() => {
+      this.setState({
+        successMessage: '',
+        errorMessage: 'There has been an error submitting your bug. Please try again.',
+      });
     });
   }
 

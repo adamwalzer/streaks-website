@@ -72,6 +72,12 @@ class ContactUs extends React.Component {
       }
 
       parent.postMessage(res, '*');
+    })
+    .catch(() => {
+      this.setState({
+        successMessage: '',
+        errorMessage: 'There has been an error sending your message. Please try again.',
+      });
     });
   }
 

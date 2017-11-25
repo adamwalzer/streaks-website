@@ -14,12 +14,12 @@ class Footer extends React.Component {
         <section>
           <h3>
               <Link
-                to="privacy-policy"
+                to="/privacy-policy"
               >
                 privacy policy
               </Link>
               <Link
-                to="terms-of-service"
+                to="/terms-of-service"
               >
                 terms of service
               </Link>
