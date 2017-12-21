@@ -12,16 +12,10 @@ import {
 } from 'lodash';
 
 import Page from '../Page';
-import Header from '../Header';
 import Background from '../Background';
-import AppCards from '../AppCards';
 
-import positive from './positive.jpg'; // https://pixabay.com/en/positive-awesome-sun-happy-poster-2223126/
+import StreaksLogo from './streaks-logo.svg';
 import sunset from './sunset.jpg'; // https://pixabay.com/en/sunset-lake-sky-abendstimmung-2153745/
-
-import add from './add.png';
-import view from './view.png';
-import edit from './edit.png';
 
 import './style.scss';
 
@@ -106,10 +100,7 @@ class Home extends React.Component {
           ref="home"
           key="home"
         >
-          <Link
-            to="/apps"
-            className="main-container"
-          >
+          <Link to="/streaks">
             <main className="thatawe">
               <Background image={sunset} />
               <section>
@@ -119,55 +110,15 @@ class Home extends React.Component {
                 <h2>
                   a place for apps <span>that awe</span>
                 </h2>
-                <h4>
-                  click anywhere to <span>checkout the apps</span>
-                </h4>
+                <h3>
+                  happily introducing <span>our first app</span>
+                </h3>
+                  <h3>
+                    <StreaksLogo />treaks
+                  </h3>
               </section>
             </main>
           </Link>
-        </Page>
-        <Page
-          ref="apps"
-          key="apps"
-        >
-          <main className="apps">
-            <Background image={positive} />
-            <div>
-              <h1>
-                <span className="rust">apps</span> thatawe
-              </h1>
-              <h2>
-                happily introducing <span>our first app</span>
-              </h2>
-            </div>
-            <AppCards />
-          </main>
-        </Page>
-        <Page
-          ref="streaks"
-          key="streaks"
-        >
-          <Header />
-          <div className="content">
-            <section>
-              <p>
-                add a streak
-              </p>
-              <img src={add} />
-            </section>
-            <section>
-              <p>
-                view and complete your streaks by tapping on the streak
-              </p>
-              <img src={view} />
-            </section>
-            <section>
-              <p>
-                see more details about your streak
-              </p>
-              <img src={edit} />
-            </section>
-          </div>
         </Page>
       </div>
     );

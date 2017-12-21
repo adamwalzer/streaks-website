@@ -13,7 +13,7 @@ class Header extends React.Component {
             <h1>
                 streaks
             </h1>
-            <a href="https://streaks.thatawe.com" target="_blank">
+            <a href="https://thatawe.com/streaks/app" target="_blank">
               check out the web app
             </a>
           </section>

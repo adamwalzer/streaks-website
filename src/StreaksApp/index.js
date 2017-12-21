@@ -7,7 +7,7 @@ import './style.scss';
 class StreaksApp extends React.Component {
   render() {
     return (
-      <header>
+      <header className="streaks_app">
           <Background image={architecture} />
           <iframe src="https://streaks.thatawe.com"></iframe>
       </header>

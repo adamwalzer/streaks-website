@@ -12,6 +12,7 @@ import Upgrade from '../Upgrade';
 import ReportBug from '../ReportBug';
 import ContactUs from '../ContactUs';
 import Home from '../Home';
+import Streaks from '../Streaks';
 import Footer from '../Footer';
 
 import './style.scss';
@@ -28,6 +29,7 @@ class App extends Component {
           <Route path="/report/bug" component={ReportBug} />
           <Route path="/contact/us" component={ContactUs} />
           <Route path="/streaks/app" component={StreaksApp} />
+          <Route path="/streaks" component={Streaks} />
           <Route path="/" component={Home} />
         </Switch>
         <Switch>

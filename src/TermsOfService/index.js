@@ -10,7 +10,10 @@ import {
 class TermsOfService extends React.Component {
   render() {
     return (
-      <section dangerouslySetInnerHTML={{__html: termsOfService}} />
+      <section
+        className="terms"
+        dangerouslySetInnerHTML={{__html: termsOfService}}
+      />
     );
   }
 }

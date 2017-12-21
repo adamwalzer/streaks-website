@@ -5,7 +5,10 @@ import './style.scss';
 class PrivacyPolicy extends React.Component {
   render() {
     return (
-      <section dangerouslySetInnerHTML={{__html: privacyPolicy}} />
+      <section
+        className="terms"
+        dangerouslySetInnerHTML={{__html: privacyPolicy}}
+      />
     );
   }
 }
