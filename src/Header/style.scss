@@ -10,9 +10,10 @@ header {
 
     section {
         position: absolute;
-        top: 35%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
+        top: 45%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
         text-align: center;
     }
 
@@ -23,19 +24,27 @@ header {
     }
 
     a {
-        display: block;
+        display: inline-block;
         transition: transform .5s;
-        margin-top: 10px;
-        border-radius: 20px;
-        box-shadow: 2px 2px 8px $dark-grey;
-        background-color: $yellow;
-        padding: 10px 20px;
-        text-decoration: none;
-        white-space: nowrap;
-        color: $dark-grey;
+        margin: 10px;
+        vertical-align: top;
+
+        &.web-app {
+            border-radius: 20px;
+            box-shadow: 2px 2px 8px $dark-grey;
+            background-color: $yellow;
+            padding: 8px 20px;
+            text-decoration: none;
+            white-space: nowrap;
+            color: $dark-grey;
+        }
 
         &:hover {
             transform: scale3d(1.1, 1.1, 1);
+        }
+
+        img {
+            height: 40px;
         }
     }
 }
