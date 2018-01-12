@@ -26,9 +26,6 @@ class Verify extends React.Component {
       code,
     } = this.state;
 
-    /* eslint-disable */
-    console.log(email, code);
-
     if (!email || !code) {
       this.setState({
         successMessage: '',
