@@ -11,6 +11,7 @@ import StreaksApp from '../StreaksApp';
 import Upgrade from '../Upgrade';
 import ReportBug from '../ReportBug';
 import ContactUs from '../ContactUs';
+import Verify from '../Verify';
 import Home from '../Home';
 import Streaks from '../Streaks';
 import Footer from '../Footer';
@@ -28,6 +29,7 @@ class App extends Component {
           <Route path="/store/streaks" component={Upgrade} />
           <Route path="/report/bug" component={ReportBug} />
           <Route path="/contact/us" component={ContactUs} />
+          <Route path="/verify" component={Verify} />
           <Route path="/streaks/app" component={StreaksApp} />
           <Route path="/streaks" component={Streaks} />
           <Route path="/" component={Home} />
